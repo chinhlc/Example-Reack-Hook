@@ -1,5 +1,5 @@
 import React, { useState, useCallback } from "react";
-import { Hello } from "./Hello";
+import { Hello, Wrap } from "./Hello";
 import { Square } from "./Square";
 
 const App = () => {
@@ -9,17 +9,18 @@ const App = () => {
   const increment = useCallback(
     n => {
       setCount(c => c + n);
-    },
-    [setCount]
-  );
+    }, [setCount]);
 
   return (
     <div>
+      {/* Example one */}
       <Hello increment={increment} />
       <div>count: {count}</div>
       {favoriteNums.map(n => {
         return <Square increment={increment} n={n} key={n} />;
       })}
+      {/* Example Two */}
+      <Wrap />
     </div>
   );
 };
